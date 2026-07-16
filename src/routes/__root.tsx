@@ -138,7 +138,7 @@ function RootComponent() {
             <header className="sticky top-0 z-30 flex h-14 items-center gap-3 border-b border-border/60 bg-background/80 px-4 backdrop-blur-md">
               <SidebarTrigger />
               <div className="flex items-center gap-2">
-                <span className="inline-block h-2 w-2 rounded-full bg-accent-foreground/60" />
+                <span className="inline-block h-2 w-2 rounded-full bg-accent" />
                 <span className="font-display text-base font-semibold tracking-tight">
                   CorDecor
                 </span>
