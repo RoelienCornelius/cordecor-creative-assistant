@@ -59,7 +59,7 @@ function SetupPlannerPage() {
   const run = async () => {
     setIsGenerating(true);
     try {
-      setOutput(await generatePlan(template, inputs));
+      setOutput(await generatePlan(template, inputs, output));
     } finally {
       setIsGenerating(false);
     }

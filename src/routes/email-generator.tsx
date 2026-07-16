@@ -71,7 +71,7 @@ function EmailGeneratorPage() {
   const run = async () => {
     setIsGenerating(true);
     try {
-      const result = await generateEmail(template, inputs);
+      const result = await generateEmail(template, inputs, output);
       setOutput(result);
     } finally {
       setIsGenerating(false);

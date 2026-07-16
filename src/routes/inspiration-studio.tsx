@@ -65,7 +65,7 @@ function InspirationStudioPage() {
   const run = async () => {
     setIsGenerating(true);
     try {
-      setOutput(await generateInspiration(template, inputs));
+      setOutput(await generateInspiration(template, inputs, output));
     } finally {
       setIsGenerating(false);
     }
