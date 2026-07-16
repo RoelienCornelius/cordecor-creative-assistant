@@ -109,13 +109,13 @@ function signoff(tone: EmailTone) {
   const base = "The CorDecor Team";
   switch (tone) {
     case "Friendly":
-      return `Chat soon,\n${base}`;
+      return `Chat soon,\n\n${base}`;
     case "Warm":
-      return `With warmest regards,\n${base}`;
+      return `With warmest regards,\n\n${base}`;
     case "Persuasive":
-      return `Looking forward to creating something unforgettable,\n${base}`;
+      return `Looking forward to creating something unforgettable,\n\n${base}`;
     default:
-      return `Kind regards,\n${base}`;
+      return `Kind regards,\n\n${base}`;
   }
 }
 
@@ -177,16 +177,16 @@ function buildEmail(template: EmailTemplate, input: EmailInputs): string {
 
   const bodies: Record<EmailTemplate, string[]> = {
     "New Enquiry Reply": [
-      `To prepare the most accurate proposal, could you kindly confirm the following:\n  • Confirmed date and venue\n  • Approximate guest count\n  • Preferred colour palette or theme\n  • Any styling elements you already have in mind (backdrop, welcome board, table styling, etc.)\n\nOnce we have these details, we'll put together a tailored concept and quotation within 2–3 working days.`,
-      `So that we can shape the right proposal, it would help to know:\n  • Your preferred date and the venue you have in mind\n  • Guest numbers and general age group\n  • The mood or references that inspire you\n  • Any must-have styling elements\n\nWe'll then send through a personalised concept, along with a clear quotation, within a few working days.`,
+      `To prepare the most accurate proposal, could you kindly confirm the following:\n\n  • Confirmed date and venue\n  • Approximate guest count\n  • Preferred colour palette or theme\n  • Any styling elements you already have in mind (backdrop, welcome board, table styling, etc.)\n\nOnce we have these details, we'll put together a tailored concept and quotation within 2–3 working days.`,
+      `So that we can shape the right proposal, it would help to know:\n\n  • Your preferred date and the venue you have in mind\n  • Guest numbers and general age group\n  • The mood or references that inspire you\n  • Any must-have styling elements\n\nWe'll then send through a personalised concept, along with a clear quotation, within a few working days.`,
     ],
     "Quotation Email": [
-      `Included in this proposal:\n  • Concept development and styling direction\n  • Décor items, backdrop and floral installation\n  • Setup, on-site management and pack-down\n  • Delivery within the greater metro area\n\nThis quotation is valid for 14 days. A 30% deposit secures your date, with the balance payable two weeks before ${date}.`,
-      `Your proposal covers:\n  • A fully developed styling concept and mood board\n  • Backdrop, table styling, florals and signage\n  • Load-in, on-site styling and complete pack-down\n\nTo hold ${date} on our calendar, a 30% deposit is required, with the balance settled two weeks ahead of the event.`,
+      `Included in this proposal:\n\n  • Concept development and styling direction\n  • Décor items, backdrop and floral installation\n  • Setup, on-site management and pack-down\n  • Delivery within the greater metro area\n\nThis quotation is valid for 14 days. A 30% deposit secures your date, with the balance payable two weeks before ${date}.`,
+      `Your proposal covers:\n\n  • A fully developed styling concept and mood board\n  • Backdrop, table styling, florals and signage\n  • Load-in, on-site styling and complete pack-down\n\nTo hold ${date} on our calendar, a 30% deposit is required, with the balance settled two weeks ahead of the event.`,
     ],
     "Booking Confirmation": [
-      `Here is a quick summary of what we have on file:\n  • Event: ${event}\n  • Date: ${date}\n  • Deposit: received, thank you\n\nOur next step is a styling walk-through two weeks before the event to lock in the final details. We'll send a short questionnaire in the meantime so we can start bringing your ideas to life.`,
-      `For your records:\n  • Event: ${event}\n  • Date: ${date}\n  • Deposit: received with thanks\n\nWe'll be in touch closer to the time to arrange a styling walk-through and to finalise the run-sheet. In the meantime, keep sending inspiration through — the more we see, the better.`,
+      `Here is a quick summary of what we have on file:\n\n  • Event: ${event}\n  • Date: ${date}\n  • Deposit: received, thank you\n\nOur next step is a styling walk-through two weeks before the event to lock in the final details. We'll send a short questionnaire in the meantime so we can start bringing your ideas to life.`,
+      `For your records:\n\n  • Event: ${event}\n  • Date: ${date}\n  • Deposit: received with thanks\n\nWe'll be in touch closer to the time to arrange a styling walk-through and to finalise the run-sheet. In the meantime, keep sending inspiration through — the more we see, the better.`,
     ],
     "Deposit Reminder": [
       `Kindly note that your date is only fully secured once the 30% deposit reflects in our account. If it's already on its way, please disregard this note. Otherwise, we're happy to resend our banking details or share alternative payment options.`,
@@ -209,33 +209,28 @@ function buildEmail(template: EmailTemplate, input: EmailInputs): string {
 
   const persuasiveBoost =
     input.tone === "Persuasive"
-      ? `\n\nWe'd love to lock in your date soon — bookings around ${date} are filling up quickly, and we want to make sure ${event} gets the attention it truly deserves.`
+      ? `We'd love to lock in your date soon — bookings around ${date} are filling up quickly, and we want to make sure ${event} gets the attention it truly deserves.`
       : "";
 
   const notesBlock =
     template !== "Custom Email" && notes
-      ? `\n\nA few additional notes for your reference:\n${splitNotes(notes)
+      ? `A few additional notes for your reference:\n\n${splitNotes(notes)
           .map((l) => `  • ${cap(l)}.`)
           .join("\n")}`
       : "";
 
-  const body = [
+  const sections = [
     `Subject: ${subject}`,
-    "",
     greeting(input.tone, name),
-    "",
     pick(openings[template]),
-    "",
     pick(bodies[template]),
-    persuasiveBoost,
-    notesBlock,
-    "",
+    ...(persuasiveBoost ? [persuasiveBoost] : []),
+    ...(notesBlock ? [notesBlock] : []),
     "Please don't hesitate to reach out with any questions.",
-    "",
     signoff(input.tone),
-  ]
-    .filter(Boolean)
-    .join("\n");
+  ];
+
+  const body = sections.join("\n\n");
 
   return body;
 }
