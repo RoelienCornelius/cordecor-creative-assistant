@@ -622,18 +622,23 @@ function buildInspiration(
         ].join("\n");
       }
 
-      case "Décor Styling Suggestions":
+      case "Décor Styling Suggestions": {
+        const c1 = userColours[0] || "your primary tone";
+        const c2 = userColours[1] || "ivory";
         return [
           `STYLING SUGGESTIONS`,
-          `  • Balloon combinations — Try ${
-            userColours[0] || "your primary tone"
-          } + ${userColours[1] || "ivory"} + antique brass for organic garlands with a grown-up feel.`,
-          `  • Table layering — Three heights per table: taper candles, low florals and a signature charger plate.`,
-          `  • Florals — Focal blooms in ${primaryColour}, softened with foliage and dried textures inspired by ${theme}.`,
-          `  • Furniture — Warm-wood tables, cross-back chairs and a small lounge vignette anchor ${venue} beautifully.`,
-          `  • Signage — Hand-lettered menus, table numbers and directional signs in a consistent typeface.`,
-          `  • Metallics — Vintage brass or matte black accents to anchor ${colours} without overpowering it.`,
+          `  • Balloon combinations — Organic garland in ${c1}, ${c2} and antique brass, with a few oversized 90cm balloons for scale. Feels celebratory without tipping into childish, which suits ${event}.`,
+          `  • Balloon styling — Anchor the garland asymmetrically over one shoulder of the backdrop and trail it down toward a plinth. This gives the photographer a natural focal point.`,
+          `  • Backdrop concept — A soft arched panel in ${c1} with cascading florals on the upper corner, tailored to sit comfortably within ${venue}.`,
+          `  • Floral accents — Focal blooms in ${primaryColour}, softened with foliage and a touch of dried texture inspired by ${theme}. Keeps the styling layered and camera-ready.`,
+          `  • Furniture — Warm-wood tables, cross-back chairs and a small lounge vignette with a linen sofa; grounds ${venue} and gives guests a place to gather beyond the table.`,
+          `  • Lighting — Warm uplighters against the backdrop, taper candles down the tables and fairy lights woven through greenery for a golden, cinematic mood after sunset.`,
+          `  • Photo moment — A hand-lettered welcome board framed by florals near the entrance, plus a smaller vignette (bench + signage in ${c1}) for portrait shots.`,
+          `  • Signage — Consistent hand-lettered menus, table numbers and directional signs; a small detail that lifts the whole event.`,
+          `  • Finishing touches — Individually placed napkin sprigs, a personalised place card per guest and a scented candle at the entrance so the room smells as beautiful as it looks.`,
         ].join("\n");
+      }
+
 
       case "Party Bucket & Gift Ideas":
         return [
