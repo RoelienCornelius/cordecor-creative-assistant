@@ -65,7 +65,7 @@ function AboutPage() {
           <ul className="mt-1 grid grid-cols-1 gap-2 sm:grid-cols-2">
             {benefits.map((b) => (
               <li key={b} className="flex items-start gap-2 text-foreground/90">
-                <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-accent text-accent-foreground">
+                <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-accent text-primary">
                   <Check className="h-3 w-3" />
                 </span>
                 <span>{b}</span>

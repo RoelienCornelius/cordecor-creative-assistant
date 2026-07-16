@@ -20,7 +20,7 @@ export function PageHeader({
       )}
       <div className="flex items-start gap-3">
         {Icon && (
-          <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-accent to-primary text-accent-foreground shadow-sm">
+          <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-primary text-primary-foreground shadow-sm ring-1 ring-gold/40">
             <Icon className="h-5 w-5" />
           </div>
 
