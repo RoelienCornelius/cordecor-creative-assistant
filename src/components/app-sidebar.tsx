@@ -36,9 +36,10 @@ export function AppSidebar() {
     <Sidebar collapsible="icon">
       <SidebarHeader className="border-b border-sidebar-border/60">
         <div className="flex items-center gap-2 px-2 py-1.5">
-          <div className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-primary text-primary-foreground">
+          <div className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-gradient-to-br from-accent to-primary text-accent-foreground shadow-sm ring-1 ring-accent/30">
             <span className="font-display text-sm font-semibold">C</span>
           </div>
+
           <div className="flex min-w-0 flex-col group-data-[collapsible=icon]:hidden">
             <span className="font-display text-sm font-semibold leading-tight">
               CorDecor
