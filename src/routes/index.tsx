@@ -70,7 +70,7 @@ function DashboardPage() {
             to={f.to}
             className="group flex flex-col rounded-2xl border border-border bg-card p-6 shadow-sm transition-all hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-md"
           >
-            <div className="mb-4 grid h-11 w-11 place-items-center rounded-xl bg-accent text-accent-foreground">
+            <div className="mb-4 grid h-11 w-11 place-items-center rounded-xl bg-accent text-primary">
               <f.icon className="h-5 w-5" />
             </div>
             <h2 className="font-display text-xl font-semibold">{f.title}</h2>
@@ -87,7 +87,7 @@ function DashboardPage() {
 
       <section className="mb-10 rounded-2xl border border-border bg-card p-6">
         <div className="flex items-start gap-3">
-          <div className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-accent text-accent-foreground">
+          <div className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-accent text-primary">
             <Lightbulb className="h-4 w-4" />
           </div>
           <div>

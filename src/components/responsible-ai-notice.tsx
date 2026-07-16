@@ -4,7 +4,7 @@ export function ResponsibleAINotice() {
   return (
     <div className="rounded-2xl border border-border/70 bg-accent/40 p-4 sm:p-5">
       <div className="flex gap-3">
-        <div className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-background text-accent-foreground shadow-sm">
+        <div className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-background text-primary shadow-sm">
           <ShieldCheck className="h-4 w-4" />
         </div>
         <div className="min-w-0">
