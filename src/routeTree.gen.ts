@@ -9,8 +9,32 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SetupPlannerRouteImport } from './routes/setup-planner'
+import { Route as InspirationStudioRouteImport } from './routes/inspiration-studio'
+import { Route as EmailGeneratorRouteImport } from './routes/email-generator'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
+const SetupPlannerRoute = SetupPlannerRouteImport.update({
+  id: '/setup-planner',
+  path: '/setup-planner',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InspirationStudioRoute = InspirationStudioRouteImport.update({
+  id: '/inspiration-studio',
+  path: '/inspiration-studio',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EmailGeneratorRoute = EmailGeneratorRouteImport.update({
+  id: '/email-generator',
+  path: '/email-generator',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +43,88 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/email-generator': typeof EmailGeneratorRoute
+  '/inspiration-studio': typeof InspirationStudioRoute
+  '/setup-planner': typeof SetupPlannerRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/email-generator': typeof EmailGeneratorRoute
+  '/inspiration-studio': typeof InspirationStudioRoute
+  '/setup-planner': typeof SetupPlannerRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/email-generator': typeof EmailGeneratorRoute
+  '/inspiration-studio': typeof InspirationStudioRoute
+  '/setup-planner': typeof SetupPlannerRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/email-generator'
+    | '/inspiration-studio'
+    | '/setup-planner'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/email-generator'
+    | '/inspiration-studio'
+    | '/setup-planner'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/email-generator'
+    | '/inspiration-studio'
+    | '/setup-planner'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  EmailGeneratorRoute: typeof EmailGeneratorRoute
+  InspirationStudioRoute: typeof InspirationStudioRoute
+  SetupPlannerRoute: typeof SetupPlannerRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/setup-planner': {
+      id: '/setup-planner'
+      path: '/setup-planner'
+      fullPath: '/setup-planner'
+      preLoaderRoute: typeof SetupPlannerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/inspiration-studio': {
+      id: '/inspiration-studio'
+      path: '/inspiration-studio'
+      fullPath: '/inspiration-studio'
+      preLoaderRoute: typeof InspirationStudioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/email-generator': {
+      id: '/email-generator'
+      path: '/email-generator'
+      fullPath: '/email-generator'
+      preLoaderRoute: typeof EmailGeneratorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,17 +137,11 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  EmailGeneratorRoute: EmailGeneratorRoute,
+  InspirationStudioRoute: InspirationStudioRoute,
+  SetupPlannerRoute: SetupPlannerRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
