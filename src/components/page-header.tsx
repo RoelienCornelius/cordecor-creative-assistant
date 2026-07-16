@@ -20,9 +20,10 @@ export function PageHeader({
       )}
       <div className="flex items-start gap-3">
         {Icon && (
-          <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-primary text-primary-foreground">
+          <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-accent to-primary text-accent-foreground shadow-sm">
             <Icon className="h-5 w-5" />
           </div>
+
         )}
         <div className="min-w-0">
           <h1 className="font-display text-3xl font-semibold leading-tight sm:text-4xl">
