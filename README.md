@@ -23,7 +23,6 @@ CorDecor Creative Assistant is an AI-powered web application developed as part o
 - **Tailwind CSS** — Utility-first CSS framework for styling.
 - **GitHub** — Version control and project repository hosting.
 - **ChatGPT** — Used for prompt engineering, planning and documentation.
-- **Google Slides** — Used to create the project presentation.
 
 ## Setup Instructions
 
