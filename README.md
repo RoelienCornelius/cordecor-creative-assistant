@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-CorDecor Creative Assistant is an AI-powered web application developed as part of the AI Skills Accelerator project. It is designed to help décor and event styling businesses streamline their daily workflows through intelligent, simulated AI-generated assistance. The application supports three core areas of operation: client communication, event setup planning and creative décor inspiration — all within a single, easy-to-use dashboard.
+CorDecor Creative Assistant is an AI-powered web application developed as part of the AI Skills Accelerator project. It is designed to help décor and event styling businesses streamline their workflows through AI-assisted client communication, event setup planning, and creative décor inspiration. The application brings these capabilities together in a single, easy-to-use dashboard.
 
 ## Features Implemented
 
@@ -31,7 +31,7 @@ Follow these steps to run the project locally:
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/cordecor/cordecor-creative-assistant.git
+   git clone https://github.com/RoelienCornelius/cordecor-creative-assistant.git
    cd cordecor-creative-assistant
    ```
 
