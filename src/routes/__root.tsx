@@ -80,20 +80,24 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "CorDecor Creative Assistant" },
+      { title: "Dashboard — CorDecor Creative Assistant" },
       {
         name: "description",
         content:
-          "AI-powered client communication, event planning and creative inspiration for décor and event styling.",
+          "One integrated dashboard for client communication, event planning and creative inspiration.",
       },
-      { property: "og:title", content: "CorDecor Creative Assistant" },
+      { property: "og:title", content: "Dashboard — CorDecor Creative Assistant" },
       {
         property: "og:description",
         content:
-          "AI-powered client communication, event planning and creative inspiration for décor and event styling.",
+          "One integrated dashboard for client communication, event planning and creative inspiration.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Dashboard — CorDecor Creative Assistant" },
+      { name: "twitter:description", content: "One integrated dashboard for client communication, event planning and creative inspiration." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/4571182f-baae-4977-98ca-acac402bdf70/id-preview-3e41bbca--c8bf7013-15bc-4c65-b686-9d76f4ae83e2.lovable.app-1784246177885.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/4571182f-baae-4977-98ca-acac402bdf70/id-preview-3e41bbca--c8bf7013-15bc-4c65-b686-9d76f4ae83e2.lovable.app-1784246177885.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
